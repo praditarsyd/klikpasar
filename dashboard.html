@@ -59,20 +59,22 @@
                 <div class="container">
                     <div class="row">
                         <!-- Produk 1 -->
-                        <div class="col-lg-4 col-sm-6 mb-4">
-                            <div class="portfolio-item">
-                                <a class="portfolio-link" data-bs-toggle="modal" href="#productModal" onclick="viewProductDetails('Bayam', 'per ikat', '3.000', 'assets/img/portfolio/1.jpeg')">
-                                    <div class="portfolio-hover">
-                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                    </div>
-                                    <img class="img-fluid" src="assets/img/portfolio/1.jpeg" alt="Bayam" />
-                                </a>
-                                <div class="portfolio-caption">
-                                    <div class="portfolio-caption-heading">Bayam</div>
-                                    <div class="portfolio-caption-subheading text-muted">Bayam</div>
-                                </div>
-                            </div>
-                        </div>
+                     <div class="col-lg-4 col-sm-6 mb-4 product-item" data-name="bayam">
+    <div class="portfolio-item">
+        <a class="portfolio-link" data-bs-toggle="modal" href="#productModal" 
+           onclick="viewProductDetails('Bayam', 'per ikat', '3000', 'assets/img/portfolio/1.jpeg')">
+            <div class="portfolio-hover">
+                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+            </div>
+            <img class="img-fluid" src="assets/img/portfolio/1.jpeg" alt="Bayam" />
+        </a>
+        <div class="portfolio-caption">
+            <div class="portfolio-caption-heading">Bayam</div>
+            <div class="portfolio-caption-subheading text-muted">Bayam</div>
+        </div>
+    </div>
+</div>
+
                 
                         <!-- Produk 2 -->
                         <div class="col-lg-4 col-sm-6 mb-4">
@@ -1100,6 +1102,25 @@ a
         localStorage.setItem('cart', JSON.stringify([])); // Kosongkan keranjang
         showCart(); // Perbarui tampilan keranjang
     }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+    searchProducts();
+});
+
+function searchProducts() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let productItems = document.querySelectorAll('.product-item');
+    
+    productItems.forEach(function(item) {
+        let productName = item.getAttribute('data-name').toLowerCase();
+        if (productName.includes(input)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
 </script>
 </body>
     <footer class="bg-dark text-white py-4">
