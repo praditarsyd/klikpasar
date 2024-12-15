@@ -1,118 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Klik Pasar</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/logo.png" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">BERANDA</a></li>
-                        <li class="nav-item"><a class="nav-link" href=dashboard.html>PRODUK</a></li>
-                        <li class="nav-item"><a class="nav-link" href=akun.html>AKUN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">TENTANG</a></li>
-                        <li class="nav-item"><a class="nav-link" href=login.html>MASUK</a></li>
-                    </ul>
-                   <!-- Search Bar-->
-                    <form class="d-flex ms-auto" onsubmit="return searchProduct(event)">
-                        <script>
-                            // Fungsi untuk mengarahkan pengguna ke halaman yang sesuai
-                            function searchProduct(event) {
-                                event.preventDefault(); // Mencegah pengiriman form default
-                                var input = document.querySelector("input[name='query']").value.toLowerCase(); // Ambil nilai input dan ubah ke huruf kecil
-                                var urls = {
-                                    "apel": "apel.html",
-                                    "pisang": "pisang.html",
-                                    "alpukat": "alpukat.html",
-                                };
-                    
-                                if (urls[input]) {
-                // Jika kata kunci ditemukan dalam objek urls, arahkan ke URL yang sesuai
-                window.location.href = urls[input];
-            } else {
-                // Jika kata kunci tidak ditemukan, arahkan ke dashboard.html
-               
-                window.location.href = "dashboard.html";
-            }
-
-            return false; // Hindari pengiriman form
-        }
-                        </script>
-                        <input 
-                            class="form-control me-2" 
-                            type="search" 
-                            placeholder="Cari produk..." 
-                            aria-label="Search" 
-                            name="query" 
-                            id="searchInput" 
-                            required 
-                        />
-                        <button class="btn btn-outline-light" type="submit">Cari</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">             
-            </div>
-        </header>
-
-        <style>
-        .product-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-        .product-card h5 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .product-card p {
-            font-size: 0.9rem;
-            color: #777;
-        }
-        .product-card .price {
-            font-size: 1rem;
-            color: #28a745;
-            font-weight: bold;
-        }
-        .section-title {
-            margin: 40px 0 20px;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -120,13 +6,53 @@
     <title>Promo Bulan Ini</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        /* Promo Section Styling */
+        .promo-section {
+            margin: 40px 0;
+        }
+        .promo-section .row {
+            display: flex;
+            align-items: center;
+        }
+        .promo-section img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            margin: auto;
+            display: block;
+        }
+        .promo-section .text {
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        /* Footer Styling */
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+        footer iframe {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="section-title">PROMO BULAN INI</h2>
+    <!-- Promo Section -->
+    <div class="container promo-section">
+        <h2 class="section-title text-center">PROMO BULAN INI</h2>
         <div class="row">
-            <div class="col-md-4">
-                <img class="img-fluid" src="assets/img/promo.png" alt="Promo" />
+            <div class="col-md-6">
+                <img class="img-fluid" src="assets/img/promo.png" alt="Promo">
+            </div>
+            <div class="col-md-6">
                 <div class="text">
                     <h3>🎉 Belanja Seru, Dapat Hadiah Menarik! 🎉</h3>
                     <p>Belanja di Klik Pasar kini jadi lebih menguntungkan! Yuk, ikuti promo spesial kami:</p>
@@ -135,13 +61,14 @@
                         <li>Produk sembako gratis 🛒</li>
                         <li>Voucher belanja untuk pembelian berikutnya 🎟</li>
                     </ul>
-                    <p>📅 Promo berlaku hingga: 31 Desember 2024</p>
+                    <p><strong>📅 Promo berlaku hingga: 31 Desember 2024</strong></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4">
+    <!-- Footer Section -->
+    <footer>
         <div class="container">
             <div class="row">
                 <!-- Contact Info -->
@@ -158,9 +85,6 @@
                     <a href="https://www.google.com/maps/place/Pasar+Klandasan" target="_blank">Klik di sini untuk melihat lokasi di Google Maps</a>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1272.6474503877522!2d116.82790094119013!3d-1.2776302046727605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1473ad26a52ad%3A0x50a8fbed62f2487e!2sPasar%20Klandasan!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-                        width="200"
-                        height="150"
-                        style="border:0;"
                         allowfullscreen=""
                         loading="lazy">
                     </iframe>
