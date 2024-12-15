@@ -40,8 +40,39 @@
                         <li class="nav-item"><a class="nav-link" href=login.html>MASUK</a></li>
                     </ul>
                     <!-- Search Bar-->
-                    <form class="d-flex ms-auto" action="search_results.html" method="GET">
-                        <input class="form-control me-2" type="search" placeholder="Cari produk..." aria-label="Search" name="query" />
+                    <form class="d-flex ms-auto" onsubmit="return searchProduct(event)">
+                        <script>
+                            // Fungsi untuk mengarahkan pengguna ke halaman yang sesuai
+                            function searchProduct(event) {
+                                event.preventDefault(); // Mencegah pengiriman form default
+                                var input = document.querySelector("input[name='query']").value.toLowerCase(); // Ambil nilai input dan ubah ke huruf kecil
+                                var urls = {
+                                    "apel": "apel.html",
+                                    "pisang": "pisang.html",
+                                    "alpukat": "alpukat.html",
+                                };
+                    
+                                if (urls[input]) {
+                // Jika kata kunci ditemukan dalam objek urls, arahkan ke URL yang sesuai
+                window.location.href = urls[input];
+            } else {
+                // Jika kata kunci tidak ditemukan, arahkan ke dashboard.html
+               
+                window.location.href = "dashboard.html";
+            }
+
+            return false; // Hindari pengiriman form
+        }
+                        </script>
+                        <input 
+                            class="form-control me-2" 
+                            type="search" 
+                            placeholder="Cari produk..." 
+                            aria-label="Search" 
+                            name="query" 
+                            id="searchInput" 
+                            required 
+                        />
                         <button class="btn btn-outline-light" type="submit">Cari</button>
                     </form>
                 </div>
