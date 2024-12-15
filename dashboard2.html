@@ -15,6 +15,28 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            
+            .to-top-button {
+              position: fixed;
+              bottom: 150px;
+              right: 20px;
+              background-color: #f79327;
+              color: white;
+              padding: 10px 15px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              z-index: 1000;
+              display: none; /* Mulai dengan tombol disembunyikan */
+            }
+            .to-top-button:hover {
+              background-color: #fffb00;
+            }
+          </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -396,9 +418,11 @@
 </div>
 </div>
 <button onclick="location.href='dashboard.html'" class="button">Ke Halaman 1</button>
-
-
+<button class="to-top-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
     </section>
+    
 
     <!-- Keranjang Icon -->
     <div class="cart-icon" style="position: fixed; bottom: 20px; right: 20px;">
@@ -652,7 +676,19 @@ function searchProducts() {
 }
 
 </script>
+
 </body>
+<script>
+    const toTopButton = document.querySelector('.to-top-button');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        toTopButton.style.display = 'block';
+      } else {
+        toTopButton.style.display = 'none';
+      }
+    });
+  </script>
     <footer class="bg-dark text-white py-4">
     <div class="container">
         <div class="row">
@@ -682,5 +718,6 @@ function searchProducts() {
 </iframe>
 
         </div>
+        
 </footer>
 </html>
