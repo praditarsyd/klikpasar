@@ -83,38 +83,41 @@
         <ul id="cartItems" class="list-group">
             <!-- Produk akan ditambahkan di sini secara dinamis -->
         </ul>
-
+        
         <!-- Menampilkan total harga -->
-         
         <p id="totalPrice" style="font-size: 20px; font-weight: bold; margin-top:30px; margin-bottom: 20px; margin-left: 20px; margin-right: 20px;">Total: Rp. 0</p>
-
+        
         <!-- Tombol untuk melanjutkan pembelian atau proses lainnya -->
-                <a href="pembayaran.html" class="btn btn-primary btn-xl text-uppercase" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Checkout</a>
-
+        <a href="pembayaran.html" class="btn btn-primary btn-xl text-uppercase" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Checkout</a>
+        
         <script>
-            // Fungsi updateCart() yang sudah kita bahas sebelumnya
-            function updateCart() {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let total = 0;
-                let cartItems = document.getElementById('cartItems');
-                cartItems.innerHTML = '';
-
-                cart.forEach(item => {
-                    let itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-
-                    let listItem = document.createElement('li');
-                    listItem.classList.add('list-group-item');
-                    listItem.textContent = `${item.name} - ${item.quantity} x Rp. ${item.price.toLocaleString()} = Rp. ${itemTotal.toLocaleString()}`;
-                    cartItems.appendChild(listItem);
-                });
-
-                // Menampilkan total harga dengan pemisah ribuan
-                document.getElementById('totalPrice').textContent = `Total: Rp. ${total.toLocaleString()}`;
-            }
-
-            // Panggil fungsi untuk memperbarui keranjang saat halaman dimuat
-            updateCart();
+        // Fungsi updateCart() yang sudah kita bahas sebelumnya
+        function updateCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+            let cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+        
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+        
+                let listItem = document.createElement('li');
+                listItem.classList.add('list-group-item');
+                listItem.textContent = `${item.name} - ${item.quantity} x Rp. ${item.price.toLocaleString()} = Rp. ${itemTotal.toLocaleString()}`;
+                cartItems.appendChild(listItem);
+            });
+        
+            // Menambahkan biaya ongkir Rp. 10.000
+            const ongkir = 10000;
+            total += ongkir;
+        
+            // Menampilkan total harga dengan biaya ongkir
+            document.getElementById('totalPrice').textContent = `Total: Rp. ${total.toLocaleString()} (Ongkir: Rp. ${ongkir.toLocaleString()})`;
+        }
+        
+        // Panggil fungsi untuk memperbarui keranjang saat halaman dimuat
+        updateCart();
         </script>
-    </body>
-</html>
+        </body>
+        </html>
